@@ -1,0 +1,74 @@
+---
+title: "STAT400 Final R proejct Preliminary"
+author: "Cheolhong Ahn: UID:114202192 ,  "
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    number_sections: yes    
+    toc: yes
+---
+
+
+**The dataset Name:**"marketing_capaign.csv"\
+**Source:** Kaggle (https://www.kaggle.com/imakash3011/customer-personality-analysis)
+```{r}
+marketData <- read.csv(file = "marketing_campaign.csv", sep="\t")
+
+```
+
+
+**summary:**\
+Types of variables: Categorical variables, quantitive variables, qualitive varaibles ...\
+Variables we plan to use: Education, Income, Year_Birth, Marital_Status, NumWebPurchases, NumStorePurchases\
+```{r}
+summary(marketData)
+```
+
+**Visaul Summaries:**\
+Histogram of Ages
+```{r}
+#Trimmed histogram of Age
+
+#Trim: removes outliers 1.5 times greater than IQR range from mean.
+trim <- function(x){
+  x[(x > mean(x)-1.5*IQR(x)) & (x < mean(x)+1.5*IQR(x))]
+}
+hist(trim(marketData$Year_Birth),
+     main = "Distribution of age",
+     xlab = "Year", 
+     ylab = "Number of People", 
+     xlim =c(1940,2000),  
+     breaks =60 )
+  
+```
+
+**Possible Ideas:**\
+1) Year_Birth vs NumWebPurchases\
+   Hypothesis: the ratio of web purchases vs store purchases will increase as\
+               the birth year increases\
+               
+2) Income vs total number of purhcases.\
+
+
+3) Education vs Marital_Status\
+
+
+
+
+
+**Task**\
+
+Cheolhong Ahn :\
+
+Suliat Ogunmona :\
+
+Leanne Sto. Domingo :\
+
+Aayush Nepal :\
+
+Yichun Bai :\
+
+
+
+
